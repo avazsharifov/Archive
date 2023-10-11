@@ -77,6 +77,13 @@ function reload(massiv) {
         rateWrap.append(rateImage, rate);
         countWrap.append(countImage, count);
 
+        if (cart.includes(elem.id)) {
+            buttonAdd.classList.add('active')
+            buttonAdd.innerHTML = "Добавлено"
+        } else {
+            buttonAdd.classList.remove('active')
+            buttonAdd.innerHTML = "В избранное"
+        }
         // d
         buttonAdd.onclick = () => {
 
@@ -188,7 +195,7 @@ function cart_realod(cart_ids) {
             let idx = cart.indexOf(item.id)
             cart.splice(idx, 1)
             cart_item.remove()
-            buttonAdd.classList.add("add")
+            reload(arr)
 
 
         }        
@@ -240,6 +247,9 @@ menu_button.onclick = () => {
         document.body.style.overflow = "scroll"
     }
 }
+
+
+
 
 
 
